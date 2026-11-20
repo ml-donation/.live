@@ -1,0 +1,19 @@
+ML DONATION — QA REPORT
+
+Corrections in this package:
+- Removed a malformed, unused embedded copy of the member page from the public homepage. The old copy had left stray page/script fragments after the homepage React app and added unnecessary page weight.
+- Reduced the member signup preloader from 7 seconds to 1.2 seconds.
+- Added 12-second timeouts and clearer errors to member/admin JSONBin reads and writes; added a 10-second timeout to homepage settings loading.
+- Kept the same JSONBin database and configuration. No Cloudflare Worker, Firebase, Supabase, or other storage backend is used.
+- Bumped the service-worker cache to v5 so deployed clients fetch the corrected files.
+
+Validation performed:
+- JavaScript syntax checks passed for all executable scripts in index.html, member.html, and admin/index.html.
+- JSONBin seed file parses as JSON.
+- Homepage no longer contains the unused embedded member-page copy or its stray script fragments.
+
+Not verified from this environment:
+- Live JSONBin credential permissions and current record contents.
+- Full end-to-end browser interactions on the deployed GitHub Pages site.
+
+Important security limitation: GitHub Pages is static. The JSONBin access key and client-side admin password are visible to visitors. Do not use this setup for real financial operations or sensitive personal data.
